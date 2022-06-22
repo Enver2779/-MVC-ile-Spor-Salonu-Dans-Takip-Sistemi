@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "ogrtPage";
+}
+
+<h2>ogrtPage</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            <p>adi</p>
+        </th>
+        
+        <th>
+            <p>YASI</p>
+        </th>
+        <th>
+            <p>KİLO</p>
+        </th>
+        <th>
+            <p>ePOSTA</p>
+        </th>
+        <th>
+            <p>CİNSİYET</p>
+        </th>
+        <th>
+            <p>TELEFON</p>
+        </th>
+        <th>
+            <p>SOYADİ</p>
+        </th>
+        <th>
+            <p>psw</p>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in (ViewBag.veri))
+    {
+<tr>
+    <td>
+        @item.adi
+    </td>
+   
+    <td>
+        @item.soyadi
+    </td>
+    <td>
+        @item.yası
+    </td>
+    <td>
+        @item.cinsiyet
+    </td>
+    <td>
+        @item.boy
+    </td>
+    <td>
+        @item.kilo
+    </td>
+    <td>
+        @item.eposta
+    </td>
+    <td>
+        @item.psw
+    </td>
+    <td>
+        @item.telefon
+    </td>
+</tr>
+    }
+
+</table>

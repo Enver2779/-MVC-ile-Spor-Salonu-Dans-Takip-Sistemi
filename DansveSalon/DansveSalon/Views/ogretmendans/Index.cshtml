@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DansveSalon.Models.ogretmendans>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dans.dansadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ogretmen.adi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.dans.dansadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ogretmen.adi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ogrdesid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ogrdesid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ogrdesid })
+        </td>
+    </tr>
+}
+
+</table>

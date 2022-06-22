@@ -1,0 +1,69 @@
+﻿@model IEnumerable<DansveSalon.Models.ogretmen>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.adi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.soyadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.memleket)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eposta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.psw)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.maası)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.salon.bolumadi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.adi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.soyadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.memleket)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eposta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.psw)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.maası)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salon.bolumadi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ogrid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ogrid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ogrid })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="salonvedansModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="dans">
+    <Key>
+      <PropertyRef Name="dansid" />
+    </Key>
+    <Property Name="dansid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dansadi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dansmemleket" Type="nvarchar" MaxLength="50" />
+    <Property Name="dansfiyat" Type="smallmoney" />
+    <Property Name="danssure" Type="smalldatetime" />
+    <Property Name="danskodu" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ogrenci">
+    <Key>
+      <PropertyRef Name="ono" />
+    </Key>
+    <Property Name="ono" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="soyadi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="yası" Type="int" />
+    <Property Name="cinsiyet" Type="nchar" MaxLength="10" />
+    <Property Name="boy" Type="int" />
+    <Property Name="kilo" Type="int" />
+    <Property Name="eposta" Type="nchar" MaxLength="25" Nullable="false" />
+    <Property Name="psw" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="telefon" Type="nchar" MaxLength="11" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ogrenciders">
+    <Key>
+      <PropertyRef Name="ogdersid" />
+    </Key>
+    <Property Name="ono" Type="int" Nullable="false" />
+    <Property Name="dansid" Type="int" Nullable="false" />
+    <Property Name="ogdersid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ogretmen">
+    <Key>
+      <PropertyRef Name="ogrid" />
+    </Key>
+    <Property Name="ogrid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="soyadi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="memleket" Type="nvarchar" MaxLength="50" />
+    <Property Name="eposta" Type="nchar" MaxLength="10" />
+    <Property Name="psw" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="bolumid" Type="int" Nullable="false" />
+    <Property Name="maası" Type="smallmoney" />
+  </EntityType>
+  <EntityType Name="ogretmendans">
+    <Key>
+      <PropertyRef Name="ogrdesid" />
+    </Key>
+    <Property Name="ogrdesid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ogrid" Type="int" Nullable="false" />
+    <Property Name="dansid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="salon">
+    <Key>
+      <PropertyRef Name="bolumid" />
+    </Key>
+    <Property Name="bolumid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bolumadi" Type="nchar" MaxLength="50" />
+    <Property Name="acıklama" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_ogrenciders_dans">
+    <End Role="dans" Type="Self.dans" Multiplicity="1" />
+    <End Role="ogrenciders" Type="Self.ogrenciders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dans">
+        <PropertyRef Name="dansid" />
+      </Principal>
+      <Dependent Role="ogrenciders">
+        <PropertyRef Name="dansid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ogrenciders_ogrenci">
+    <End Role="ogrenci" Type="Self.ogrenci" Multiplicity="1" />
+    <End Role="ogrenciders" Type="Self.ogrenciders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ogrenci">
+        <PropertyRef Name="ono" />
+      </Principal>
+      <Dependent Role="ogrenciders">
+        <PropertyRef Name="ono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ogretmen_salon">
+    <End Role="salon" Type="Self.salon" Multiplicity="1" />
+    <End Role="ogretmen" Type="Self.ogretmen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="salon">
+        <PropertyRef Name="bolumid" />
+      </Principal>
+      <Dependent Role="ogretmen">
+        <PropertyRef Name="bolumid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ogretmendans_dans">
+    <End Role="dans" Type="Self.dans" Multiplicity="1" />
+    <End Role="ogretmendans" Type="Self.ogretmendans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dans">
+        <PropertyRef Name="dansid" />
+      </Principal>
+      <Dependent Role="ogretmendans">
+        <PropertyRef Name="dansid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ogretmendans_ogretmen">
+    <End Role="ogretmen" Type="Self.ogretmen" Multiplicity="1" />
+    <End Role="ogretmendans" Type="Self.ogretmendans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ogretmen">
+        <PropertyRef Name="ogrid" />
+      </Principal>
+      <Dependent Role="ogretmendans">
+        <PropertyRef Name="ogrid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="salonvedansModelStoreContainer">
+    <EntitySet Name="dans" EntityType="Self.dans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ogrenci" EntityType="Self.ogrenci" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ogrenciders" EntityType="Self.ogrenciders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ogretmen" EntityType="Self.ogretmen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ogretmendans" EntityType="Self.ogretmendans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="salon" EntityType="Self.salon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ogrenciders_dans" Association="Self.FK_ogrenciders_dans">
+      <End Role="dans" EntitySet="dans" />
+      <End Role="ogrenciders" EntitySet="ogrenciders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ogrenciders_ogrenci" Association="Self.FK_ogrenciders_ogrenci">
+      <End Role="ogrenci" EntitySet="ogrenci" />
+      <End Role="ogrenciders" EntitySet="ogrenciders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ogretmen_salon" Association="Self.FK_ogretmen_salon">
+      <End Role="salon" EntitySet="salon" />
+      <End Role="ogretmen" EntitySet="ogretmen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ogretmendans_dans" Association="Self.FK_ogretmendans_dans">
+      <End Role="dans" EntitySet="dans" />
+      <End Role="ogretmendans" EntitySet="ogretmendans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ogretmendans_ogretmen" Association="Self.FK_ogretmendans_ogretmen">
+      <End Role="ogretmen" EntitySet="ogretmen" />
+      <End Role="ogretmendans" EntitySet="ogretmendans" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

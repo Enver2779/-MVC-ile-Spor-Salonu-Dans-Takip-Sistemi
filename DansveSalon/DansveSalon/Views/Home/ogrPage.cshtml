@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "ogrPage";
+}
+<a href="~/dans/Index">Dans çeşitleri</a>
+<h2>ogrPage</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            <p>dansadi</p>
+        </th>
+        <th>
+            <p>dansmemleket</p>
+        </th>
+        <th>
+            <p>Dans Fiytaı</p>
+        </th>
+        <th>
+            <p>danssure</p>
+        </th>
+        <th>
+            <p>danskodu</p>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in (ViewBag.veri))
+    {
+        <tr>
+            <td>
+                @item.dansadi
+            </td>
+            <td>
+                @item.dansmemleket
+            </td>
+            <td>
+                @item.dansfiyat
+            </td>
+            <td>
+                @item.danssure
+            </td>
+            <td>
+                @item.danskodu
+            </td>
+
+        </tr>
+    }
+
+</table>

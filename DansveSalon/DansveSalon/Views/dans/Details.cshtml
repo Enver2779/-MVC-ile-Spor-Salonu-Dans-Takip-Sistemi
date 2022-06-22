@@ -1,0 +1,58 @@
+﻿@model DansveSalon.Models.dans
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>dans</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dansadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dansadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dansmemleket)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dansmemleket)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dansfiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dansfiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.danssure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.danssure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.danskodu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.danskodu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.dansid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,74 @@
+﻿@model DansveSalon.Models.ogretmen
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ogretmen</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.soyadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soyadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.memleket)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.memleket)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eposta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eposta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.psw)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.psw)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.maası)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.maası)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.salon.bolumadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.salon.bolumadi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ogrid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

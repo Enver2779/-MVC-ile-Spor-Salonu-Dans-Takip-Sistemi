@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="salonvedansModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="dans">
+      <EntityTypeMapping TypeName="salonvedansModel.dans">
+        <MappingFragment StoreEntitySet="dans">
+          <ScalarProperty Name="dansid" ColumnName="dansid" />
+          <ScalarProperty Name="dansadi" ColumnName="dansadi" />
+          <ScalarProperty Name="dansmemleket" ColumnName="dansmemleket" />
+          <ScalarProperty Name="dansfiyat" ColumnName="dansfiyat" />
+          <ScalarProperty Name="danssure" ColumnName="danssure" />
+          <ScalarProperty Name="danskodu" ColumnName="danskodu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ogrenci">
+      <EntityTypeMapping TypeName="salonvedansModel.ogrenci">
+        <MappingFragment StoreEntitySet="ogrenci">
+          <ScalarProperty Name="ono" ColumnName="ono" />
+          <ScalarProperty Name="adi" ColumnName="adi" />
+          <ScalarProperty Name="soyadi" ColumnName="soyadi" />
+          <ScalarProperty Name="yası" ColumnName="yası" />
+          <ScalarProperty Name="cinsiyet" ColumnName="cinsiyet" />
+          <ScalarProperty Name="boy" ColumnName="boy" />
+          <ScalarProperty Name="kilo" ColumnName="kilo" />
+          <ScalarProperty Name="eposta" ColumnName="eposta" />
+          <ScalarProperty Name="psw" ColumnName="psw" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ogrenciders">
+      <EntityTypeMapping TypeName="salonvedansModel.ogrenciders">
+        <MappingFragment StoreEntitySet="ogrenciders">
+          <ScalarProperty Name="ono" ColumnName="ono" />
+          <ScalarProperty Name="dansid" ColumnName="dansid" />
+          <ScalarProperty Name="ogdersid" ColumnName="ogdersid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ogretmen">
+      <EntityTypeMapping TypeName="salonvedansModel.ogretmen">
+        <MappingFragment StoreEntitySet="ogretmen">
+          <ScalarProperty Name="ogrid" ColumnName="ogrid" />
+          <ScalarProperty Name="adi" ColumnName="adi" />
+          <ScalarProperty Name="soyadi" ColumnName="soyadi" />
+          <ScalarProperty Name="memleket" ColumnName="memleket" />
+          <ScalarProperty Name="eposta" ColumnName="eposta" />
+          <ScalarProperty Name="psw" ColumnName="psw" />
+          <ScalarProperty Name="bolumid" ColumnName="bolumid" />
+          <ScalarProperty Name="maası" ColumnName="maası" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ogretmendans">
+      <EntityTypeMapping TypeName="salonvedansModel.ogretmendans">
+        <MappingFragment StoreEntitySet="ogretmendans">
+          <ScalarProperty Name="ogrdesid" ColumnName="ogrdesid" />
+          <ScalarProperty Name="ogrid" ColumnName="ogrid" />
+          <ScalarProperty Name="dansid" ColumnName="dansid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="salon">
+      <EntityTypeMapping TypeName="salonvedansModel.salon">
+        <MappingFragment StoreEntitySet="salon">
+          <ScalarProperty Name="bolumid" ColumnName="bolumid" />
+          <ScalarProperty Name="bolumadi" ColumnName="bolumadi" />
+          <ScalarProperty Name="acıklama" ColumnName="acıklama" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="salonvedansModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="salonvedansModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="salonvedansModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="salonvedansModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="salonvedansModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="salonvedansModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="salonvedansModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="salonvedansModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="salonvedansModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="salonvedansModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

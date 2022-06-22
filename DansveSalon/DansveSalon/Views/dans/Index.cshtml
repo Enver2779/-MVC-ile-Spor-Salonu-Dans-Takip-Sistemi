@@ -1,0 +1,57 @@
+﻿@model IEnumerable<DansveSalon.Models.dans>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dansadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dansmemleket)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dansfiyat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.danssure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.danskodu)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.dansadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dansmemleket)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dansfiyat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.danssure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.danskodu)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.dansid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.dansid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.dansid })
+        </td>
+    </tr>
+}
+
+</table>

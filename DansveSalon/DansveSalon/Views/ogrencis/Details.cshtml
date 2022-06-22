@@ -1,0 +1,90 @@
+﻿@model DansveSalon.Models.ogrenci
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ogrenci</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.soyadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soyadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yası)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yası)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cinsiyet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cinsiyet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.boy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.boy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kilo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kilo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eposta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eposta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.psw)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.psw)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefon)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ono }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
